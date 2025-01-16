@@ -19,7 +19,7 @@ int main() {
         case 1:
             cout << "Running Challenge 01" << endl;
             runChallenge01();
-        break;
+            break;
         default:
             cout << "Invalid choice" << endl;
             break;
