@@ -5,5 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(cryptopals
         main.cpp
+        cryptoutils.cpp
         challenge01.cpp
-        challenge02.cpp)
+        challenge02.cpp
+        challenge03.cpp)
