@@ -10,6 +10,7 @@
 unsigned int charToHex(char c);
 std::string padLeft(std::string s, int desiredLength, char padding);
 int hexToInt(char hex);
+std::string hexToBytes(std::string hex);
 
 
 #endif //CRYPTOUTILS_H

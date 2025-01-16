@@ -42,6 +42,20 @@ int hexToInt(char hex) {
     } else if (hex >= 'a' && hex <= 'f') {
         return hex - 'a' + 10;
     } else {
-        throw std::invalid_argument("Invalid hex character");
+        throw invalid_argument("Invalid hex character");
     }
+}
+
+string hexToBytes(string hex) {
+    string bytes;
+    if (hex.length() % 2 != 0) {
+        throw invalid_argument("Hex string must have an even length");
+    }
+
+    for (size_t i = 0; i < hex.length(); i += 2) {
+        unsigned int high = charToHex(hex[i]);
+        unsigned int low = charToHex(hex[i + 1]);
+        bytes += static_cast<char>((high << 4) | low);
+    }
+    return bytes;
 }
