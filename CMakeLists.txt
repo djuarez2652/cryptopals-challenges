@@ -4,4 +4,5 @@ project(cryptopals)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(cryptopals
-        main.cpp)
+        main.cpp
+        challenge01.cpp)
