@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include "cryptoutils.h"
 
 using namespace std;
 
@@ -17,16 +18,6 @@ void runChallenge01() {
     string input = "49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d";
     string output = sHexToBase64(input);
     cout << "Hex input: " << input << "\n" << "Base64: " << output << endl;
-}
-
-unsigned int charToHex(const char c) {
-    unsigned int hex;
-    if (isdigit(c)) {
-        hex = c - '0';
-    } else {
-        hex = (tolower(c, locale())) - 'a' + 10;
-    }
-    return hex;
 }
 
 string sHexToBase64(string s) {
