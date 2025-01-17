@@ -6,19 +6,15 @@
 #include <iostream>
 #include <map>
 #include <string>
-
 #include "cryptoutils.h"
 
 using namespace std;
 
-string xor_cipher(const string&);
-
-
 void runChallenge03() {
     string input = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736";
-    string output = xor_cipher(input);
+    tuple<float, string, char> output = xor_cipher(input);
 
-    cout << "Input: " << input << "\n" << "Decrypted: " << output << endl;
+    cout << "Input: " << input << "\n" << "Decrypted: " << get<1>(output) << endl;
 }
 
 float score(string s) {
@@ -44,22 +40,22 @@ float score(string s) {
 
 
 
-string xor_cipher(const string &s) {
+tuple<float, string, char> xor_cipher(const string &s) {
     const string bytes = hexToBytes(s);
-    tuple<float, string, char> result {-numeric_limits<float>::infinity(), "", '\0'};
+    tuple<float, string, char> answer {-numeric_limits<float>::infinity(), "", '\0'};
 
     for (unsigned int i = 0; i < 256; ++i) {
         string res;
         for (const char bit : bytes) {
             const char xor_val = static_cast<char>(bit ^ i);
-            if (!isprint(xor_val)) {
+            if (xor_val != '\n' and !isprint(xor_val)) {
                 res.erase();
                 break;
             }
             res += xor_val;
         }
-        if (!res.empty() && score(res) > get<0>(result)) {
-            result = make_tuple(score(res), res, i);
+        if (!res.empty() && score(res) > get<0>(answer)) {
+            answer = make_tuple(score(res), res, i);
         }
     }
 
@@ -67,5 +63,9 @@ string xor_cipher(const string &s) {
     // cout << "Value: " << get<1>(result) << endl;
     // cout << "Score: " << get<0>(result) << "\n" << endl;
 
-    return get<1>(result);
+    // if (get<1>(answer).empty() and get<2>(answer) == '\0') {
+        // cout << "The string: " << s << " did not have a viable key" << endl;
+    // }
+
+    return answer;
 }

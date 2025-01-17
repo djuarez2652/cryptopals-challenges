@@ -7,6 +7,7 @@
 #include "challenge01.h"
 #include "challenge02.h"
 #include "challenge03.h"
+#include "challenge04.h"
 
 using namespace std;
 
@@ -15,6 +16,7 @@ int main() {
     cout << "1: Challenge 01\n";
     cout << "2: Challenge 02\n";
     cout << "3: Challenge 03\n";
+    cout << "4: Challenge 04\n";
 
     int choice;
     cin >> choice;
@@ -31,6 +33,10 @@ int main() {
         case 3:
             cout << "Running Challenge 03" << endl;
             runChallenge03();
+            break;
+        case 4:
+            cout << "Running Challenge 04" << endl;
+            runChallenge04();
             break;
         default:
             cout << "Invalid choice" << endl;

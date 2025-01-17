@@ -8,4 +8,5 @@ add_executable(cryptopals
         cryptoutils.cpp
         challenge01.cpp
         challenge02.cpp
-        challenge03.cpp)
+        challenge03.cpp
+        challenge04.cpp)
