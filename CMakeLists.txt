@@ -9,4 +9,5 @@ add_executable(cryptopals
         challenge01.cpp
         challenge02.cpp
         challenge03.cpp
-        challenge04.cpp)
+        challenge04.cpp
+        challenge05.cpp)
